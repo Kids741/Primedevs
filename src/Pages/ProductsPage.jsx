@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import moodtrackImg from "../assets/Moodtrack.jpg";
+import erpImg from "../assets/erp.jpg";
+import aiassistantImg from "../assets/aiassistant.JPG";
+import queueImg from "../assets/queue system.jpg";
 
 // SAMPLE DATA — Replace with your real product data later
 const products = [
@@ -9,27 +13,27 @@ const products = [
     id: 1,
     name: "Mood Track wellness app",
     description: "Track, visualize and improve your emotional wellbeing with AI insights.",
-    image: "/src/assets/Moodtrack.jpg",
+    image: moodtrackImg,
     link: "https://moodtrack-moodtrack.vercel.app/",
   },
   {
     id: 2,
     name: "Navoregwa bussiness ERP",
     description: "A scalabe ERP to manage business operations efficiently.",
-    image: "/src/assets/erp.jpg",
+    image: erpImg,
     link: "https://incomparable-erpsystem.netlify.app/",
   },
   {
     id: 3,
     name: "Medical AI Assistant",
     description: "An AI-powered clinical assistant for symptom checking and triage.",
-    image: "/src/assets/aiassistant.JPG",
+    image: aiassistantImg,
   },
   {
-    id: 3,
+    id: 4,
     name: "Queue Management System",
     description: "Smart queue automation for hospitals and clinics.",
-    image: "/src/assets/queue system.jpg",
+    image: queueImg,
   },
 ];
 
