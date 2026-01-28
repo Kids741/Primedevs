@@ -6,14 +6,16 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
+    // Allow form to submit naturally to Netlify
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
@@ -61,10 +63,23 @@ export default function Contact() {
 
         {/* Contact Form */}
         <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 p-6 rounded-2xl shadow-xl bg-white"
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
+          
           <h2 className="text-2xl font-semibold mb-2">Send Us a Message</h2>
+
+          {submitted && (
+            <div className="bg-green-50 text-green-700 p-3 rounded-lg border border-green-200">
+              Thank you! Your message has been sent successfully.
+            </div>
+          )}
 
           <Input
             type="text"
