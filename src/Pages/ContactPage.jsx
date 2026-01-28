@@ -5,17 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = (e) => {
-    // Allow form to submit naturally to Netlify
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    // Form will submit naturally to Netlify
+    // Reset message after 5 seconds
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
@@ -71,7 +67,11 @@ export default function Contact() {
           className="flex flex-col gap-4 p-6 rounded-2xl shadow-xl bg-white"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="bot-field" />
+          <p className="hidden">
+            <label>
+              Don't fill this out: <input name="bot-field" />
+            </label>
+          </p>
           
           <h2 className="text-2xl font-semibold mb-2">Send Us a Message</h2>
 
@@ -85,8 +85,6 @@ export default function Contact() {
             type="text"
             placeholder="Your Name"
             name="name"
-            value={form.name}
-            onChange={handleChange}
             required
           />
 
@@ -94,23 +92,22 @@ export default function Contact() {
             type="email"
             placeholder="Email Address"
             name="email"
-            value={form.email}
-            onChange={handleChange}
             required
           />
 
           <Textarea
             placeholder="Your Message"
             name="message"
-            value={form.message}
-            onChange={handleChange}
             className="min-h-[150px]"
             required
           />
 
-          <Button type="submit" className="w-full text-lg py-6 rounded-xl">
+          <button 
+            type="submit" 
+            className="w-full text-lg py-6 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+          >
             Send Message
-          </Button>
+          </button>
         </form>
       </div>
     </section>
