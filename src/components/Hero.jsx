@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const heroSlides = [
   {
-    title: "Transform Healthcare with Intelligent Technology",
+    title: "Transform Healthcare and Business with Intelligent Technology",
     subtitle:
       "Build modern digital experiences powered by AI, automation, and seamless patient workflows.",
     button1: "Get Started",
@@ -20,7 +20,7 @@ const heroSlides = [
       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2940&q=80"
   },
   {
-    title: "Empower Patients, Doctors & Hospitals",
+    title: "Empower Patients, Doctors , Hospitals and Businesses",
     subtitle:
       "Leverage automation, analytics and data intelligence to transform care delivery.",
     button1: "Join the Mission",
@@ -66,12 +66,12 @@ export default function Hero() {
                 <p className="text-base md:text-lg">{slide.subtitle}</p>
 
                 <div className="mt-4 flex gap-4">
-                  <button className="rounded-xl bg-white px-6 py-2 font-semibold text-black shadow-lg transition hover:scale-105">
+                  <a href="#contact" className="rounded-xl bg-white px-6 py-2 font-semibold text-black shadow-lg transition hover:scale-105">
                     {slide.button1}
-                  </button>
-                  <button className="rounded-xl border border-white px-6 py-2 font-semibold text-white shadow-inner transition hover:bg-white/10 hover:scale-105">
+                  </a>
+                  <a href="#services" className="rounded-xl border border-white px-6 py-2 font-semibold text-white shadow-inner transition hover:bg-white/10 hover:scale-105">
                     {slide.button2}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

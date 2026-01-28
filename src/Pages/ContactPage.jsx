@@ -35,7 +35,7 @@ export default function Contact() {
 
           <div className="flex items-center gap-4">
             <Mail className="h-6 w-6 text-blue-600" />
-            <p className="text-gray-700">support@primedevs.app</p>
+            <p className="text-gray-700">kidsdev001@gmail.com</p>
           </div>
 
           <div className="flex items-center gap-4">

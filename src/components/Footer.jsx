@@ -24,10 +24,10 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold mb-3">Services</h3>
           <ul className="space-y-2 text-sm">
-            <li>Web & Mobile Development</li>
-            <li>Healthcare Software</li>
-            <li>AI & Automation</li>
-            <li>IoT Solutions</li>
+            <li><a href="#services" className="hover:text-white">Web & Mobile Development</a></li>
+            <li><a href="#services" className="hover:text-white">Healthcare Software</a></li>
+            <li><a href="#services" className="hover:text-white">AI & Automation</a></li>
+            <li><a href="#services" className="hover:text-white">IoT Solutions</a></li>
           </ul>
         </div>
 
@@ -35,10 +35,9 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold mb-3">Company</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-white">About Us</a></li>
-            <li><a href="#" className="hover:text-white">Projects</a></li>
-            <li><a href="#" className="hover:text-white">Careers</a></li>
-            <li><a href="#" className="hover:text-white">Contact</a></li>
+            <li><a href="#about" className="hover:text-white">About Us</a></li>
+            <li><a href="#products" className="hover:text-white">Projects</a></li>
+            <li><a href="#contact" className="hover:text-white">Contact</a></li>
           </ul>
         </div>
 

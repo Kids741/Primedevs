@@ -22,7 +22,7 @@ export default function About() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          src="src/assets/mission.JPG"
+          src="src/assets/healthtech.jpg"
           alt="Mission"
           className="rounded-3xl shadow-xl object-cover h-80 w-full"
         />
