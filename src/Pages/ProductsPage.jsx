@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import moodtrackImg from "../assets/Moodtrack.jpg";
 import erpImg from "../assets/erp.jpg";
-import aiassistantImg from "../assets/aiassistant.JPG";
+import aiassistantImg from "../assets/aiassistant.jpg";
 import queueImg from "../assets/queue system.jpg";
 
 // SAMPLE DATA — Replace with your real product data later
