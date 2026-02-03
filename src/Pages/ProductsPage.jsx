@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -38,11 +39,15 @@ const products = [
 ];
 
 export default function Products() {
+  const [loadedImages, setLoadedImages] = useState({});
+
+  const handleImageLoad = (id) => {
+    setLoadedImages(prev => ({ ...prev, [id]: true }));
+  };
+
   const handleContactClick = (e) => {
     e.preventDefault();
-    console.log("Contact button clicked");
     const contactSection = document.getElementById("contact");
-    console.log("Contact section found:", contactSection);
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -66,20 +71,30 @@ export default function Products() {
 
       {/* PRODUCTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-        {products.map((product) => (
+        {products.map((product, index) => (
           <motion.div
             key={product.id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
             className="h-full"
           >
             <Card className="rounded-2xl shadow-sm hover:shadow-xl transition-all bg-white overflow-hidden border border-gray-100 h-full flex flex-col">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-48 w-full object-cover"
-              />
+              <div className="relative h-48 w-full bg-gray-200">
+                {!loadedImages[product.id] && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-8 h-8 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+                  </div>
+                )}
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  loading="lazy"
+                  onLoad={() => handleImageLoad(product.id)}
+                  className={`h-48 w-full object-cover transition-opacity duration-300 ${loadedImages[product.id] ? 'opacity-100' : 'opacity-0'}`}
+                />
+              </div>
 
               <CardContent className="p-5 flex flex-col gap-2 flex-grow">
                 <h2 className="text-xl font-semibold">{product.name}</h2>
