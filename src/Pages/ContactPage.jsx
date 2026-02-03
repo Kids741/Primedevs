@@ -49,8 +49,7 @@ export default function Contact() {
         <div className="flex flex-col gap-4 p-6 rounded-2xl shadow-xl bg-white">
           <h2 className="text-2xl font-semibold mb-2">Send Us a Message</h2>
           <iframe
-            data-tally-src="https://tally.so/embed/jaPE7E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
+            src="https://tally.so/embed/jaPE7E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
             width="100%"
             height="500"
             frameBorder="0"
