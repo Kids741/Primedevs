@@ -8,7 +8,7 @@ const heroSlides = [
     button1: "Get Started",
     button2: "Learn More",
     image:
-      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=2560&q=80"
+      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1600&q=75"
   },
   {
     title: "Build Scalable Web & AI Solutions",
@@ -17,7 +17,7 @@ const heroSlides = [
     button1: "Start Building",
     button2: "View Projects",
     image:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2940&q=80"
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=75"
   },
   {
     title: "Empower Patients, Doctors , Hospitals and Businesses",
@@ -26,14 +26,20 @@ const heroSlides = [
     button1: "Join the Mission",
     button2: "Explore Tools",
     image:
-      "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?auto=format&fit=crop&w=2762&q=80"
+      "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?auto=format&fit=crop&w=1600&q=75"
   }
 ];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
+    // Preload first image
+    const img = new Image();
+    img.src = heroSlides[0].image;
+    img.onload = () => setImagesLoaded(true);
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 4000);
@@ -52,7 +58,8 @@ export default function Hero() {
             <div key={idx} className="relative h-full min-w-full">
               <img
                 src={slide.image}
-                loading="lazy"
+                loading={idx === 0 ? "eager" : "lazy"}
+                fetchPriority={idx === 0 ? "high" : "low"}
                 alt={slide.title}
                 className="h-full w-full object-cover"
               />
