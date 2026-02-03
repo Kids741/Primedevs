@@ -1,18 +1,6 @@
-import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    setSubmitted(true);
-    // Form will submit naturally to Netlify
-    // Reset message after 5 seconds
-    setTimeout(() => setSubmitted(false), 5000);
-  };
 
   return (
     <section className="w-full mx-auto max-w-6xl px-4 py-16">
@@ -57,58 +45,21 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-4 p-6 rounded-2xl shadow-xl bg-white"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p className="hidden">
-            <label>
-              Don't fill this out: <input name="bot-field" />
-            </label>
-          </p>
-          
+        {/* Contact Form - Tally */}
+        <div className="flex flex-col gap-4 p-6 rounded-2xl shadow-xl bg-white">
           <h2 className="text-2xl font-semibold mb-2">Send Us a Message</h2>
-
-          {submitted && (
-            <div className="bg-green-50 text-green-700 p-3 rounded-lg border border-green-200">
-              Thank you! Your message has been sent successfully.
-            </div>
-          )}
-
-          <Input
-            type="text"
-            placeholder="Your Name"
-            name="name"
-            required
-          />
-
-          <Input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            required
-          />
-
-          <Textarea
-            placeholder="Your Message"
-            name="message"
-            className="min-h-[150px]"
-            required
-          />
-
-          <button 
-            type="submit" 
-            className="w-full text-lg py-6 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Send Message
-          </button>
-        </form>
+          <iframe
+            data-tally-src="https://tally.so/embed/jaPE7E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="500"
+            frameBorder="0"
+            marginHeight="0"
+            marginWidth="0"
+            title="Contact form"
+            className="min-h-[500px]"
+          ></iframe>
+        </div>
       </div>
     </section>
   );
