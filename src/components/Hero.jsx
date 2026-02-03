@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import hero1 from "../assets/Hero1.jpg";
+import hero2 from "../assets/Hero2.jpg";
+import hero3 from "../assets/Hero3.jpg";
 
 const heroSlides = [
   {
@@ -7,8 +10,7 @@ const heroSlides = [
       "Build modern digital experiences powered by AI, automation, and seamless patient workflows.",
     button1: "Get Started",
     button2: "Learn More",
-    image:
-      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1600&q=75"
+    image: hero1
   },
   {
     title: "Build Scalable Web & AI Solutions",
@@ -16,8 +18,7 @@ const heroSlides = [
       "From HMIS to chatbots, create products that solve real problems and drive impact.",
     button1: "Start Building",
     button2: "View Projects",
-    image:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=75"
+    image: hero2
   },
   {
     title: "Empower Patients, Doctors , Hospitals and Businesses",
@@ -25,8 +26,7 @@ const heroSlides = [
       "Leverage automation, analytics and data intelligence to transform care delivery.",
     button1: "Join the Mission",
     button2: "Explore Tools",
-    image:
-      "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?auto=format&fit=crop&w=1600&q=75"
+    image: hero3
   }
 ];
 
